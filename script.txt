@@ -1,0 +1,25 @@
+create table Users(
+Id int NOT NULL primary key,
+Name varchar(150),
+Subname Varchar(150),
+FavouriteNetwork int,
+)
+
+create table Networks(
+UserId int NOT NULL,
+SocialNetworkId int NOT NULL,
+primary key (UserId, SocialNetworkId)
+)
+
+create table SocialNetwork(
+Id int NOT NULL primary key,
+name varchar(150),
+Url varchar(150)
+)
+
+USE [PrimeraPrueba]
+GO
+INSERT INTO [dbo].[Users]
+([Id],[Name],[Subname],[FavouriteNetwork])
+VALUES(3,'usuario','apellido',2)
+GO
