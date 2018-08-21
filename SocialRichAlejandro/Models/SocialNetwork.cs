@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SocialRich.Entities
+namespace SocialRichAlejandro.Models
 {
     public class SocialNetwork
     {

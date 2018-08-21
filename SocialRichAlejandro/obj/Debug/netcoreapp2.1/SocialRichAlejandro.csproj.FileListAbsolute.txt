@@ -2,7 +2,9 @@ C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\bin\Debug\n
 C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\bin\Debug\netcoreapp2.1\SocialRichAlejandro.runtimeconfig.json
 C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\bin\Debug\netcoreapp2.1\SocialRichAlejandro.runtimeconfig.dev.json
 C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\bin\Debug\netcoreapp2.1\SocialRichAlejandro.dll
-C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\obj\Debug\netcoreapp2.1\SocialRichAlejandro.csprojAssemblyReference.cache
+C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\bin\Debug\netcoreapp2.1\SocialRichAlejandro.pdb
+C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\bin\Debug\netcoreapp2.1\SocialRichAlejandro.Views.dll
+C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\bin\Debug\netcoreapp2.1\SocialRichAlejandro.Views.pdb
 C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\obj\Debug\netcoreapp2.1\SocialRichAlejandro.csproj.CoreCompileInputs.cache
 C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\obj\Debug\netcoreapp2.1\SocialRichAlejandro.RazorAssemblyInfo.cache
 C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\obj\Debug\netcoreapp2.1\SocialRichAlejandro.RazorAssemblyInfo.cs
@@ -11,8 +13,10 @@ C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\obj\Debug\n
 C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\obj\Debug\netcoreapp2.1\SocialRichAlejandro.TagHelpers.input.cache
 C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\obj\Debug\netcoreapp2.1\SocialRichAlejandro.TagHelpers.output.cache
 C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\obj\Debug\netcoreapp2.1\SocialRichAlejandro.RazorCoreGenerate.cache
+C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\obj\Debug\netcoreapp2.1\Razor\Views\Home\AddUser.g.cshtml.cs
 C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
 C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\obj\Debug\netcoreapp2.1\Razor\Views\Home\Privacy.g.cshtml.cs
+C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\obj\Debug\netcoreapp2.1\Razor\Views\Home\ShowUser.g.cshtml.cs
 C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.g.cshtml.cs
 C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
 C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Layout.g.cshtml.cs
@@ -21,12 +25,8 @@ C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\obj\Debug\n
 C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\obj\Debug\netcoreapp2.1\Razor\Views\_ViewStart.g.cshtml.cs
 C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\obj\Debug\netcoreapp2.1\SocialRichAlejandro.RazorTargetAssemblyInfo.cache
 C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\obj\Debug\netcoreapp2.1\SocialRichAlejandro.RazorTargetAssemblyInfo.cs
-C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\bin\Debug\netcoreapp2.1\SocialRichAlejandro.pdb
-C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\bin\Debug\netcoreapp2.1\SocialRichAlejandro.Views.dll
-C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\bin\Debug\netcoreapp2.1\SocialRichAlejandro.Views.pdb
-C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\obj\Debug\netcoreapp2.1\Razor\Views\Home\AddUser.g.cshtml.cs
-C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\obj\Debug\netcoreapp2.1\Razor\Views\Home\ShowUser.g.cshtml.cs
 C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\obj\Debug\netcoreapp2.1\SocialRichAlejandro.Views.pdb
 C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\obj\Debug\netcoreapp2.1\SocialRichAlejandro.dll
 C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\obj\Debug\netcoreapp2.1\SocialRichAlejandro.pdb
 C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\obj\Debug\netcoreapp2.1\SocialRichAlejandro.csproj.CopyComplete
+C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\obj\Debug\netcoreapp2.1\SocialRichAlejandro.csprojAssemblyReference.cache
