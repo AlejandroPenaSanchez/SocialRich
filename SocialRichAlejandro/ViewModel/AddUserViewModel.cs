@@ -9,7 +9,9 @@ namespace SocialRichAlejandro.ViewModel
 {
     public class AddUserViewModel
     {
+        [Required]
         public string Name { get; set; }
+        [Required]
         public string Subname { get; set; }
         public int FavouriteNetwork { get; set; }
         public List<int> Netwoks { get; set; } 

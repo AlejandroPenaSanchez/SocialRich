@@ -20,8 +20,7 @@ namespace SocialRichAlejandro.Models
         public string Subname { get; set; }
 
 
-        public int FavouriteNetwork { get; set; }
-        [ForeignKey("FavouriteNetwork")]
-        public SocialNetwork SocialNetwork { get; set; }
+        public int? SocialNetworkId { get; set; }
+        public virtual SocialNetwork SocialNetwork { get; set; }
     }
 }

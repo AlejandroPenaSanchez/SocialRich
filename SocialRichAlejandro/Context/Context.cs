@@ -23,7 +23,7 @@ namespace SocialRich.Entities
             //modelBuilder.Entity<Networks>().HasOne(n => n.Users).WithMany().HasForeignKey(n => n.UserId).HasConstraintName("FK_User");
             // modelBuilder.Entity<Users>().HasOne(s => s.SocialNetwork).WithOne(s => s.User).HasForeignKey<SocialNetwork>(u => u.Id);
             //modelBuilder.Entity<SocialNetwork>().HasOne(s => s.User).WithOne(s => s.SocialNetwork).HasForeignKey<Users>(u => u.FavouriteNetwork);
-            modelBuilder.Entity<Users>().HasOne(u => u.SocialNetwork).WithOne();
+            //modelBuilder.Entity<Users>().HasIndex(u => u.SocialNetwork).IsUnique(false);
             modelBuilder.Entity<SocialNetwork>().HasKey(s => new { s.Id });
             modelBuilder.Entity<Networks>().HasKey(n => new { n.Id });
             modelBuilder.Entity<Users>().HasKey(u => new { u.Id });

@@ -11,7 +11,7 @@ namespace SocialRichAlejandro.ViewModel
         public int Id { get; set; }
         public string Name { get; set; }
         public string Subname { get; set; }
-        public string favouriteNetwork { get; set; }
+        public string FavouriteNetwork { get; set; }
         public List<string> Networks { get; set; }
     }
 }

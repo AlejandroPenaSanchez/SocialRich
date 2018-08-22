@@ -8,9 +8,10 @@
     <div class="col-md-6">
         <h2>Lista de Usuarios</h2>
         <ul>
-            @{ 
-                foreach (var user in Model.UserList) {
-                    <li>id:@(user.Id) | nombre:@(user.Name) | apellido:@(user.Subname) | red favorita:@(user.favouriteNetwork)</li>
+            @{
+                foreach (var user in Model.UserList)
+                {
+                    <li>id:@(user.Id) | nombre:@(user.Name) | apellido:@(user.Subname) | red favorita:@(user.FavouriteNetwork)</li>
                     <ul>
                         <h5>Lista de Redes del usuario</h5>
                         @{
@@ -25,14 +26,14 @@
         </ul>
     </div>
     <div class="col-md-3">
-        <h2>Buscar usuario</h2>
-        <form action="@(Url.Action("ShowUser", "Home"))" method="post">
+        <h2>Buscar usuario y Modificar sus Redes</h2>
+        <form action="@(Url.Action("ShowUser", "Home"))" method="get">
             <div>
-                <label for="Id">Id:</label>
-                <input type="number" id="Id" />
+                <label>Id:</label>
+                <input type="number" name="Id" />
             </div>
             <div class="button">
-                <button type="submit">Search</button>
+                <button type="submit">Buscar</button>
             </div>
         </form>
     </div>
@@ -42,15 +43,16 @@
             <form class="form-group" action="@(Url.Action("AddUser","Home"))" method="post">
                 <div>
                     <label>Name:</label>
-                    <input type="text" name="Name" />
+                    <input type="text" name="Name" required/>
                 </div>
                 <div>
                     <label>SubName:</label>
-                    <input type="text" name="Subname" />
+                    <input type="text" name="Subname" required/>
                 </div>
                 <div>
                     <label>Favourite Network:</label>
                     <select class="form-control" name="FavouriteNetwork">
+                        <option>Ninguna</option>
                         @{
                             foreach (var socialNet in Model.SocialNetwokList)
                             {
@@ -72,17 +74,51 @@
                     }
                 </div>
                 <div class="button">
-                    <button type="submit">Search</button>
+                    <button type="submit">Añadir</button>
                 </div>
             </form>
         </ul>
     </div>
     <div class="col-md-3">
-        <h2>Run &amp; Deploy</h2>
+        <h2>Añadir Red Social</h2>
         <ul>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=517851">Run your app</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=517853">Run tools such as EF migrations and more</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=398609">Publish to Microsoft Azure Web Apps</a></li>
+            <form class="form-group" action="@(Url.Action("AddSocialNetwork","Home"))" method="post">
+                <div>
+                    <label>Name:</label>
+                    <input type="text" name="Name" required/>
+                </div>
+                <div>
+                    <label>Url:</label>
+                    <input type="text" name="Url" required/>
+                </div>
+                <div class="button">
+                    <button type="submit">Añadir</button>
+                </div>
+            </form>
         </ul>
     </div>
+
+    <div class="col-md-6">
+        <h2>Lista de Redes Sociales y sus Usuarios</h2>
+        <ul>
+            @{
+                foreach (var SNet in Model.SocialNetworkUsersList)
+                {
+                    <li>id:@(SNet.Id) | nombre:@(SNet.Name) | Url:@(SNet.Url)</li>
+                    <ul>
+                        <h5>Lista de Usuarios de la Red Social</h5>
+                        @{
+                            foreach (var usuario in SNet.SocialNetworkUsers)
+                            {
+                                <li>Id del Usuario: @(usuario.Id)</li>
+                                <li>Nombre del Usuario: @(usuario.Name)</li>
+                            }
+                        }
+                    </ul>
+                }
+            }
+        </ul>
+    </div>
+
+
 </div>

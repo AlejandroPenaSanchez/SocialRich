@@ -10,5 +10,6 @@ namespace SocialRichAlejandro.ViewModel
     {
         public List<UsuarioViewModel> UserList { get; set; }
         public List<SocialNetwork> SocialNetwokList { get; set; }
+        public List<SocialNetworkViewModel> SocialNetworkUsersList { get; set; }
     }
 }
