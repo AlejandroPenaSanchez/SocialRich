@@ -11,7 +11,7 @@ namespace SocialRichAlejandro.Models
         public string Name { get; set; }
         public string Url { get; set; }
 
-
         public virtual ICollection<Users> User { get; set; }
+        public virtual ICollection<Networks> Networks { get; set; }
     }
 }

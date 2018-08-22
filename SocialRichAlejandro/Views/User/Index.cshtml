@@ -1,0 +1,51 @@
+﻿@model SocialRichAlejandro.ViewModel.UsersListViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Lista de Usuario</h2>
+        <ul>
+            @{
+                foreach (var user in Model.UserList)
+                {
+                    <li>id:@(user.Id) | nombre:@(user.Name) | apellido:@(user.Subname) | red favorita:@(user.FavouriteNetwork)</li>
+                    <ul>
+                        <h5>Lista de Redes del usuario</h5>
+                        @{
+                            foreach (var network in user.Networks)
+                            {
+                                <li>red social: @(network)</li>
+                            }
+                        }
+                    </ul>
+                }
+            }
+        </ul>
+    </div>
+    <div class="col-md-6">
+        @Html.ActionLink("Añadir Usuario", "Create", "User", null, new { @class = "btn btn-info" })
+        @Html.ActionLink("Modificar Usuario", "Edit", "User", null, new { @class = "btn btn-info" })
+
+    </div>
+
+    <div class="col-md-6">
+        <form action="@(Url.Action("Details", "User"))" method="get">
+            <select class="form-control" name="FavouriteNetwork">
+                @{
+                    foreach (var user in Model.UserList)
+                    {
+                        <option value="@(user.Id)">@(user.Name)</option>
+                    }
+                }
+            </select>
+            <div class="button">
+                <button class="btn btn-info" type="submit">Buscar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+

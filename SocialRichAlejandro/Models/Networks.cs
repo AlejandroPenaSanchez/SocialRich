@@ -11,7 +11,7 @@ namespace SocialRichAlejandro.Models
         public int UserId { get; set; }
         public int SNId { get; set; }
 
-        //public ICollection<Users> Users { get; set; }
-        //public ICollection<SocialNetwork> SocialNetworks { get; set; }
+        public Users Users { get; set; }
+        public SocialNetwork SocialNetworks { get; set; }
     }
 }

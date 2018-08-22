@@ -6,24 +6,6 @@
 
 <div class="row">
     <div class="col-md-6">
-        <h2>Lista de Usuarios</h2>
-        <ul>
-            @{
-                foreach (var user in Model.UserList)
-                {
-                    <li>id:@(user.Id) | nombre:@(user.Name) | apellido:@(user.Subname) | red favorita:@(user.FavouriteNetwork)</li>
-                    <ul>
-                        <h5>Lista de Redes del usuario</h5>
-                        @{
-                            foreach (var network in user.Networks)
-                            {
-                                <li>red social: @(network)</li>
-                            }
-                        }
-                    </ul>
-                }
-            }
-        </ul>
     </div>
     <div class="col-md-3">
         <h2>Buscar usuario y Modificar sus Redes</h2>
@@ -43,11 +25,11 @@
             <form class="form-group" action="@(Url.Action("AddUser","Home"))" method="post">
                 <div>
                     <label>Name:</label>
-                    <input type="text" name="Name" required/>
+                    <input type="text" name="Name" required />
                 </div>
                 <div>
                     <label>SubName:</label>
-                    <input type="text" name="Subname" required/>
+                    <input type="text" name="Subname" required />
                 </div>
                 <div>
                     <label>Favourite Network:</label>
@@ -79,17 +61,17 @@
             </form>
         </ul>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-7">
         <h2>Añadir Red Social</h2>
         <ul>
             <form class="form-group" action="@(Url.Action("AddSocialNetwork","Home"))" method="post">
                 <div>
                     <label>Name:</label>
-                    <input type="text" name="Name" required/>
+                    <input type="text" name="Name" required />
                 </div>
                 <div>
                     <label>Url:</label>
-                    <input type="text" name="Url" required/>
+                    <input type="text" name="Url" required />
                 </div>
                 <div class="button">
                     <button type="submit">Añadir</button>
@@ -98,7 +80,7 @@
         </ul>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-5">
         <h2>Lista de Redes Sociales y sus Usuarios</h2>
         <ul>
             @{
@@ -119,6 +101,10 @@
             }
         </ul>
     </div>
+
+
+
+    @Html.ActionLink("Usuarios", "Index", "User")
 
 
 </div>

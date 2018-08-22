@@ -22,18 +22,7 @@ namespace SocialRichAlejandro.Controllers
         public IActionResult Index()
         {
             //var test = _context.SocialNetwork.Where(s => s.Id == 1).First().User.ToList();
-            var users = _context.Users.ToList();
-            List<UsuarioViewModel> list = new List<UsuarioViewModel>();
-            foreach (var user in users) {
-                list.Add(new UsuarioViewModel
-                {
-                    Id = user.Id,
-                    Name = user.Name,
-                    Subname = user.Subname,
-                    FavouriteNetwork = user.SocialNetworkId == null ? "" : _context.SocialNetwork.Where(s => user.SocialNetworkId == s.Id).Select(s => s.Name).First(),//user.SocialNetwork.Name
-                    Networks = GetNetworksNames(user.Id)
-                });
-            }
+            
 
             List<SocialNetworkViewModel> SNVMList = new List<SocialNetworkViewModel>();
             var SNList = _context.SocialNetwork.ToList();
@@ -60,22 +49,13 @@ namespace SocialRichAlejandro.Controllers
             
 
             return View(new HomeViewModel() {
-                UserList = list,
                 SocialNetwokList = _context.SocialNetwork.ToList(),
                 SocialNetworkUsersList = SNVMList
             });
         }
 
 
-        public List<string> GetNetworksNames(int UserId) {
-            var networks = _context.Networks.Where(n => n.UserId == UserId).ToList();
-            List<string> list = new List<string>();
-            foreach (var network in networks)
-            {
-                list.Add(_context.SocialNetwork.Where(s => s.Id == network.SNId).First().Name);
-            }
-            return list;
-        }
+
 
 
 
@@ -120,12 +100,12 @@ namespace SocialRichAlejandro.Controllers
             {
                 var user = _context.Users.Where(u => u.Id == Id).First();
                 var networksList = _context.Networks.Where(n => n.UserId == user.Id).ToList();
-                List<string> networks = new List<string>();
+                List<SocialNetwork> networks = new List<SocialNetwork>();
                 foreach (var net in networksList)
                 {
-                    networks.Add(_context.SocialNetwork.Where(s => s.Id == net.SNId).First().Name);
+                    networks.Add(_context.SocialNetwork.Where(s => s.Id == net.SNId).First());
                 }
-                var model = new UsuarioViewModel
+                var model = new UserViewModel
                 {
                     Id = user.Id,
                     Name = user.Name,

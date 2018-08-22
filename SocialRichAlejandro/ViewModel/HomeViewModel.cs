@@ -8,7 +8,7 @@ namespace SocialRichAlejandro.ViewModel
 {
     public class HomeViewModel
     {
-        public List<UsuarioViewModel> UserList { get; set; }
+        public List<UserViewModel> UserList { get; set; }
         public List<SocialNetwork> SocialNetwokList { get; set; }
         public List<SocialNetworkViewModel> SocialNetworkUsersList { get; set; }
     }

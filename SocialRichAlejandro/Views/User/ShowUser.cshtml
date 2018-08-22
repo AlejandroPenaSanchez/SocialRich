@@ -1,0 +1,75 @@
+﻿@model SocialRichAlejandro.ViewModel.UserViewModel
+
+@{
+    ViewData["Title"] = "About";
+}
+
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Usuario</h2>
+        <ul>
+            @{
+                <li>id:@(Model.Id) | nombre:@(Model.Name) | apellido:@(Model.Subname) | red favorita:@(Model.FavouriteNetwork)</li>
+                <ul>
+                    <h5>Lista de Redes del usuario</h5>
+                    @{
+                        foreach (var network in Model.Networks)
+                        {
+                            <li>red social: @(network)</li>
+                        }
+                    }
+                </ul>
+            }
+        </ul>
+    </div>
+
+
+    <div class="col-md-3">
+        <h2>Añadir favorito</h2>
+        <form action="@(Url.Action("ShowUser", "Home"))" method="post">
+            <div>
+                <label>UserId:</label>
+                <input type="number" name="UserId" value="@(Model.Id)" required/>
+            </div>
+            <div>
+                <label>social Network:</label>
+                <input type="number" name="socialNetworkid" required/>
+            </div>
+            <div>
+                <input class="hidden" type="text" name="IsFavourite" value="True" />
+            </div>
+            <div class="button">
+                <button type="submit">Search</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="col-md-3">
+        <h2>Añadir red social</h2>
+        <form action="@(Url.Action("ShowUser", "Home"))" method="post">
+            <div>
+                <label>UserId:</label>
+                <input type="number" name="UserId" value="@(Model.Id)" required/>
+            </div>
+            <div>
+                <label>social Network:</label>
+                <input type="number" name="socialNetworkid" required/>
+            </div>
+            <div>
+                <input class="hidden" type="text" name="IsFavourite" value="false" />
+            </div>
+            <div class="button">
+                <button type="submit">Search</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+
+
+
+
+@Html.ActionLink("Volver", "Index", "Home")
+

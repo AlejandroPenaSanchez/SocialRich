@@ -22,5 +22,7 @@ namespace SocialRichAlejandro.Models
 
         public int? SocialNetworkId { get; set; }
         public virtual SocialNetwork SocialNetwork { get; set; }
+
+        public virtual ICollection<Networks> Networks { get; set; }
     }
 }
