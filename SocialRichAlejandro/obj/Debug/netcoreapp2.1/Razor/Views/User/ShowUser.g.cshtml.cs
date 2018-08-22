@@ -139,7 +139,7 @@ using SocialRichAlejandro.Models;
             WriteLiteral("        </ul>\r\n    </div>\r\n\r\n\r\n    <div class=\"col-md-3\">\r\n        <h2>Añadir favorito</h2>\r\n        ");
             EndContext();
             BeginContext(780, 635, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0387f8f7295e4d06b128ed202269fb10", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "506d26c37abd4cb1b0b5ba75e450ba16", async() => {
                 BeginContext(843, 111, true);
                 WriteLiteral("\r\n            <div>\r\n                <label>UserId:</label>\r\n                <input type=\"number\" name=\"UserId\"");
                 EndContext();
@@ -192,7 +192,7 @@ AddHtmlAttributeValue("", 794, Url.Action("ShowUser", "Home"), 794, 33, false);
             WriteLiteral("\r\n    </div>\r\n\r\n    <div class=\"col-md-3\">\r\n        <h2>Añadir red social</h2>\r\n        ");
             EndContext();
             BeginContext(1503, 636, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "69ecc619465647d08e4b5321993f5489", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0d8e7c5522b941dcb6262e11b6a528b5", async() => {
                 BeginContext(1566, 111, true);
                 WriteLiteral("\r\n            <div>\r\n                <label>UserId:</label>\r\n                <input type=\"number\" name=\"UserId\"");
                 EndContext();

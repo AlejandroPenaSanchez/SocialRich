@@ -67,7 +67,7 @@ using SocialRichAlejandro.Models;
             WriteLiteral("\r\n<div class=\"row\">\r\n    <div class=\"col-md-6\">\r\n    </div>\r\n    <div class=\"col-md-3\">\r\n        <h2>Buscar usuario y Modificar sus Redes</h2>\r\n        ");
             EndContext();
             BeginContext(251, 314, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f17d52159b0f42ec8d6f52c28d7ab2d7", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "09e2b6289ca74a649fe5378633ce1067", async() => {
                 BeginContext(313, 245, true);
                 WriteLiteral("\r\n            <div>\r\n                <label>Id:</label>\r\n                <input type=\"number\" name=\"Id\" />\r\n            </div>\r\n            <div class=\"button\">\r\n                <button type=\"submit\">Buscar</button>\r\n            </div>\r\n        ");
                 EndContext();
@@ -98,7 +98,7 @@ AddHtmlAttributeValue("", 265, Url.Action("ShowUser", "Home"), 265, 33, false);
             WriteLiteral("\r\n    </div>\r\n    <div class=\"col-md-3\">\r\n        <h2>Añadir usuario</h2>\r\n        <ul>\r\n            ");
             EndContext();
             BeginContext(666, 1617, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "99b96f6c86954c48a521c470486a4456", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "01e1d39300fd4e8bb514b9b4bb32272e", async() => {
                 BeginContext(746, 491, true);
                 WriteLiteral(@"
                 <div>
@@ -115,7 +115,7 @@ AddHtmlAttributeValue("", 265, Url.Action("ShowUser", "Home"), 265, 33, false);
                         ");
                 EndContext();
                 BeginContext(1237, 24, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "85ae33279ad54c38845d4bac2d5fc8e1", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b3c8f8337c424a818594464cac3251c3", async() => {
                     BeginContext(1245, 7, true);
                     WriteLiteral("Ninguna");
                     EndContext();
@@ -145,7 +145,7 @@ AddHtmlAttributeValue("", 265, Url.Action("ShowUser", "Home"), 265, 33, false);
                 WriteLiteral("                                ");
                 EndContext();
                 BeginContext(1433, 32, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e94fe7b9f1004dca9c2a9b80820a9539", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c3cc3dd92bb2407fa3382c36826078d7", async() => {
                     BeginContext(1443, 12, false);
 #line 41 "C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\Views\Home\Index.cshtml"
                                     Write(socialNet.Id);
@@ -244,7 +244,7 @@ AddHtmlAttributeValue("", 699, Url.Action("AddUser","Home"), 699, 31, false);
             WriteLiteral("\r\n        </ul>\r\n    </div>\r\n    <div class=\"col-md-7\">\r\n        <h2>Añadir Red Social</h2>\r\n        <ul>\r\n            ");
             EndContext();
             BeginContext(2402, 535, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5a7fb96395864159be655cd59ee97ace", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "41935ba9f8ab4f4f8e469dbe78ff7c49", async() => {
                 BeginContext(2491, 439, true);
                 WriteLiteral(@"
                 <div>

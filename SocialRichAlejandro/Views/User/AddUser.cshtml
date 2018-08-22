@@ -1,5 +1,46 @@
-﻿@{
+﻿@model SocialRichAlejandro.ViewModel.SocialNetworkListViewModel
+
+@{
     ViewData["Title"] = "Contact";
 }
 
-
+<h2>Añadir usuario</h2>
+<ul>
+    <form class="form-group" action="@(Url.Action("AddUser","Home"))" method="post">
+        <div>
+            <label>Name:</label>
+            <input type="text" name="Name" required />
+        </div>
+        <div>
+            <label>SubName:</label>
+            <input type="text" name="Subname" required />
+        </div>
+        <div>
+            <label>Favourite Network:</label>
+            <select class="form-control" name="FavouriteNetwork">
+                <option>Ninguna</option>
+                @{
+                    foreach (var socialNet in Model.SocialNetworkList)
+                    {
+                        <option>@(socialNet.Id)</option>
+                    }
+                }
+            </select>
+        </div>
+        <div>
+            @{
+                foreach (var socialNet in Model.SocialNetworkList)
+                {
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" name="Netwoks" class="form-check-input" value="@(socialNet.Id)">@(socialNet.Name)
+                        </label>
+                    </div>
+                }
+            }
+        </div>
+        <div class="button">
+            <button type="submit">Añadir</button>
+        </div>
+    </form>
+</ul>
