@@ -30,10 +30,10 @@ namespace SocialRichAlejandro.Controllers
             foreach (var socialNet in SNList)
             {
                 List<Users> SNUsersList = new List<Users>();
-                var NetList = _context.Networks.Where(n => n.SNId == socialNet.Id).ToList();
+                var NetList = _context.Networks.Where(n => n.SocialNetworksId == socialNet.Id).ToList();
                 foreach (var net in NetList)
                 {
-                    SNUsersList.Add(_context.Users.Where(u => u.Id == net.UserId).First());
+                    SNUsersList.Add(_context.Users.First(u => u.Id == net.UsersId));
                 }
 
                 SocialNetworkViewModel model = new SocialNetworkViewModel
@@ -82,8 +82,8 @@ namespace SocialRichAlejandro.Controllers
                     {
                         _context.Networks.Add(new Networks
                         {
-                            UserId = user.Entity.Id,
-                            SNId = net,
+                            UsersId = user.Entity.Id,
+                            SocialNetworksId = net,
                         });
                     }
 
@@ -99,18 +99,18 @@ namespace SocialRichAlejandro.Controllers
             try
             {
                 var user = _context.Users.Where(u => u.Id == Id).First();
-                var networksList = _context.Networks.Where(n => n.UserId == user.Id).ToList();
+                var networksList = _context.Networks.Where(n => n.UsersId == user.Id).ToList();
                 List<SocialNetwork> networks = new List<SocialNetwork>();
                 foreach (var net in networksList)
                 {
-                    networks.Add(_context.SocialNetwork.Where(s => s.Id == net.SNId).First());
+                    networks.Add(_context.SocialNetwork.First(s => s.Id == net.SocialNetworksId));
                 }
                 var model = new UserViewModel
                 {
                     Id = user.Id,
                     Name = user.Name,
                     Subname = user.Subname,
-                    FavouriteNetwork = user.SocialNetworkId == null ? "" : _context.SocialNetwork.Where(s => s.Id == user.SocialNetworkId).First().Name,
+                    FavouriteNetwork = user.SocialNetworkId == null ? new SocialNetwork() : _context.SocialNetwork.First(s => s.Id == user.SocialNetworkId),
                     Networks = networks
                 };
 
@@ -142,16 +142,16 @@ namespace SocialRichAlejandro.Controllers
                     }
                     else
                     {
-                        var networks = _context.Networks.Where(n => n.UserId == UserId && n.SNId == socialNetworkid);
+                        var networks = _context.Networks.Where(n => n.UsersId == UserId && n.SocialNetworksId == socialNetworkid);
                         if (!networks.Any())
                         {                      
                             _context.Networks.Add(new Networks
                             {
-                                UserId = UserId,
-                                SNId = socialNetworkid
+                                UsersId = UserId,
+                                SocialNetworksId = socialNetworkid
                             });
 
-                            if (!_context.Networks.Where(n => n.UserId == UserId).Any())
+                            if (!_context.Networks.Where(n => n.UsersId == UserId).Any())
                             {
                                 var usuario = querableUsuario.First();
                                 usuario.SocialNetworkId = socialNetworkid;

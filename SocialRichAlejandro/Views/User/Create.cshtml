@@ -1,0 +1,45 @@
+﻿@model SocialRichAlejandro.ViewModel.AddUserViewModel
+
+<script src="~/js/User.js"></script>
+
+@{
+    ViewData["Title"] = "Contact";
+}
+
+<h2>Añadir usuario</h2>
+<ul>
+    <form class="form-group" asp-controller="User" asp-action="CreateUser" method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div>
+            <label asp-for="Name" class="control-label">Name:</label>
+            <input asp-for="Name" class="form-control" type="text" name="Name" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="Subname" class="control-label">SubName:</label>
+            <input asp-for="Subname" class="form-control" type="text" name="Subname" />
+            <span asp-validation-for="Subname" class="text-danger"></span>
+        </div>
+        <div>
+            <label>Favourite Network:</label>
+            <select id="FavouriteNetWork" class="form-control" name="FavouriteNetwork">
+                <option>Ninguna</option>
+            </select>
+        </div>
+        <div id="Networks">
+
+        </div>
+        <div class="button">
+            <button type="submit">Añadir</button>
+        </div>
+    </form>
+</ul>
+
+
+<script>
+    var UrlGetSocialNetworkList = "@(Url.Action("GetSocialNetworkList","User"))";
+    $(document).ready(function () {
+        getSocialNetworkList();
+    });
+    
+</script>

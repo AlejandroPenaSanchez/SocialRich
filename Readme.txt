@@ -1,0 +1,5 @@
+- Eliminar todos los archivos de la carpeta Migrations
+- consola de administrador de paquetes
+- comando: Add-Migration InitialCreate
+- Eliminar todas las tablas de la DB
+- comando: Update-Database

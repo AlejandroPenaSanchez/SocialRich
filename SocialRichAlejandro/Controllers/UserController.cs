@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing;
 using SocialRich.Entities;
 using SocialRichAlejandro.Models;
 using SocialRichAlejandro.ViewModel;
@@ -12,6 +13,8 @@ namespace SocialRichAlejandro.Controllers
 {
     public class UserController : Controller
     {
+        #region properties and constructor
+
         private readonly Context _context;
 
         public UserController(Context context)
@@ -19,6 +22,9 @@ namespace SocialRichAlejandro.Controllers
             _context = context;
         }
 
+        #endregion
+
+        #region Index
 
         [HttpGet]
         public ActionResult Index()
@@ -32,7 +38,7 @@ namespace SocialRichAlejandro.Controllers
                     Id = user.Id,
                     Name = user.Name,
                     Subname = user.Subname,
-                    FavouriteNetwork = user.SocialNetworkId == null ? "" : _context.SocialNetwork.Where(s => user.SocialNetworkId == s.Id).Select(s => s.Name).First(),//user.SocialNetwork.Name
+                    FavouriteNetwork = user.SocialNetworkId == null ? new SocialNetwork() : _context.SocialNetwork.First(s => user.SocialNetworkId == s.Id),//user.SocialNetwork.Name
                     Networks = GetNetworksNames(user.Id)
                 });
             }
@@ -44,47 +50,101 @@ namespace SocialRichAlejandro.Controllers
 
         private List<SocialNetwork> GetNetworksNames(int UserId)
         {
-            var networks = _context.Networks.Where(n => n.UserId == UserId).ToList();
+            var networks = _context.Networks.Where(n => n.UsersId == UserId).ToList();
             List<SocialNetwork> list = new List<SocialNetwork>();
             foreach (var network in networks)
             {
-                list.Add(_context.SocialNetwork.Where(s => s.Id == network.SNId).First());
+                list.Add(_context.SocialNetwork.First(s => s.Id == network.SocialNetworksId));
             }
             return list;
         }
 
+        #endregion
+
+        #region details
+        [HttpGet]
         public ActionResult Details(int Id)
+        {
+            ViewBag.UserId = Id;
+            return View();
+        }
+
+        public ActionResult EditFavourite(EditUserSocialNetViewModel model)
+        {
+
+            return RedirectToAction("Details", new RouteValueDictionary(new
+            {
+                Controller = "UserController",
+                action = "Details",
+                Id = 0
+            }));
+        }
+
+        public ActionResult AddSocialNet(EditUserSocialNetViewModel model)
+        {
+
+            return RedirectToAction("Details", new RouteValueDictionary( new
+            {
+                Controller = "UserController",
+                action = "Details",
+                Id = 0
+            }));
+        }
+
+        public UserViewModel GetUserData(int Id)
         {
             try
             {
-                var user = _context.Users.Where(u => u.Id == Id).First();
-                var networksList = _context.Networks.Where(n => n.UserId == user.Id).ToList();
+                var user = _context.Users.First(u => u.Id == Id);
+                var networksList = _context.Networks.Where(n => n.UsersId == user.Id).ToList();
                 List<SocialNetwork> networks = new List<SocialNetwork>();
                 foreach (var net in networksList)
                 {
-                    networks.Add(_context.SocialNetwork.Where(s => s.Id == net.SNId).First());
+                    networks.Add(_context.SocialNetwork.First(s => s.Id == net.SocialNetworksId));
                 }
                 var model = new UserViewModel
                 {
                     Id = user.Id,
                     Name = user.Name,
                     Subname = user.Subname,
-                    FavouriteNetwork = user.SocialNetworkId == null ? "" : _context.SocialNetwork.Where(s => s.Id == user.SocialNetworkId).First().Name,
+                    FavouriteNetwork = user.SocialNetworkId == null ? new SocialNetwork() : _context.SocialNetwork.First(s => s.Id == user.SocialNetworkId),
                     Networks = networks
                 };
 
-                return View(model);
+                return model;
             }
             catch (Exception ex)
             {
-                return Redirect("Index");
+                return new UserViewModel();
             }
         }
 
-        // GET: User/Create
-        public ActionResult Create(AddUserViewModel model)
+        #endregion
+
+        #region Create 
+
+        [HttpGet]
+        public ActionResult Create()
         {
-            if (model.Name != null && model.Subname != null)
+            var networks = _context.SocialNetwork.ToList();
+            List<SocialNetworkViewModel> list = new List<SocialNetworkViewModel>();
+            foreach (var net in networks)
+            {
+                list.Add(new SocialNetworkViewModel
+                {
+                    Id = net.Id,
+                    Name = net.Name,
+                    Url = net.Url
+                });
+            }
+            return View();
+        }
+
+
+        [HttpPost]
+        public ActionResult CreateUser(AddUserViewModel model)
+        {
+            try
             {
                 var newUser = new Users
                 {
@@ -106,41 +166,48 @@ namespace SocialRichAlejandro.Controllers
                     {
                         _context.Networks.Add(new Networks
                         {
-                            UserId = user.Entity.Id,
-                            SNId = net,
+                            UsersId = user.Entity.Id,
+                            SocialNetworksId = net,
                         });
                     }
 
                     _context.SaveChanges();
                 }
-            }
-            return Redirect("User");;
-        }
-
-        // POST: User/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
-
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                return View();
+                return RedirectToAction(nameof(Create));
             }
         }
 
-        // GET: User/Edit/5
+        [HttpPost]
+        public List<SocialNetworkViewModel> GetSocialNetworkList()
+        {
+            var SNList = _context.SocialNetwork.ToList();
+            List<SocialNetworkViewModel> list = new List<SocialNetworkViewModel>();
+            foreach (var net in SNList)
+            {
+                list.Add(new SocialNetworkViewModel
+                {
+                    Id = net.Id,
+                    Name = net.Name,
+                    Url = net.Url
+                });
+            }
+            return list;
+        }
+
+        #endregion
+
+        #region Edit
+
+        [HttpGet]
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: User/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -157,6 +224,9 @@ namespace SocialRichAlejandro.Controllers
             }
         }
 
+        #endregion
+
+        #region Delete
         // GET: User/Delete/5
         public ActionResult Delete(int id)
         {
@@ -179,5 +249,6 @@ namespace SocialRichAlejandro.Controllers
                 return View();
             }
         }
+        #endregion
     }
 }

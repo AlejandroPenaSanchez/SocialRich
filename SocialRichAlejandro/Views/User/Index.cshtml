@@ -11,13 +11,13 @@
             @{
                 foreach (var user in Model.UserList)
                 {
-                    <li>id:@(user.Id) | nombre:@(user.Name) | apellido:@(user.Subname) | red favorita:@(user.FavouriteNetwork)</li>
+                    <li>id:@(user.Id) | nombre:@(user.Name) | apellido:@(user.Subname) | red favorita:@(user.FavouriteNetwork.Name)</li>
                     <ul>
                         <h5>Lista de Redes del usuario</h5>
                         @{
                             foreach (var network in user.Networks)
                             {
-                                <li>red social: @(network)</li>
+                                <li>red social: @(network.Name)</li>
                             }
                         }
                     </ul>
@@ -25,15 +25,15 @@
             }
         </ul>
     </div>
-    <div class="col-md-6">
+
+    <div class="col-md-6 margin-top">
         @Html.ActionLink("Añadir Usuario", "Create", "User", null, new { @class = "btn btn-info" })
         @Html.ActionLink("Modificar Usuario", "Edit", "User", null, new { @class = "btn btn-info" })
-
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-6 margin-top">
         <form action="@(Url.Action("Details", "User"))" method="get">
-            <select class="form-control" name="FavouriteNetwork">
+            <select class="form-control" name="Id">
                 @{
                     foreach (var user in Model.UserList)
                     {

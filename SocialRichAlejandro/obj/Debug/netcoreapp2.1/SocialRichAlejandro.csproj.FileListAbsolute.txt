@@ -29,7 +29,7 @@ C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\obj\Debug\n
 C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\obj\Debug\netcoreapp2.1\SocialRichAlejandro.csproj.CopyComplete
 C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\obj\Debug\netcoreapp2.1\SocialRichAlejandro.csprojAssemblyReference.cache
 C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\obj\Debug\netcoreapp2.1\Razor\Views\SocialNetwork\AddSocialNetwork.g.cshtml.cs
-C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\obj\Debug\netcoreapp2.1\Razor\Views\User\AddUser.g.cshtml.cs
 C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\obj\Debug\netcoreapp2.1\Razor\Views\User\EditUser.g.cshtml.cs
-C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\obj\Debug\netcoreapp2.1\Razor\Views\User\ShowUser.g.cshtml.cs
 C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\obj\Debug\netcoreapp2.1\Razor\Views\User\Index.g.cshtml.cs
+C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\obj\Debug\netcoreapp2.1\Razor\Views\User\Details.g.cshtml.cs
+C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\obj\Debug\netcoreapp2.1\Razor\Views\User\Create.g.cshtml.cs
