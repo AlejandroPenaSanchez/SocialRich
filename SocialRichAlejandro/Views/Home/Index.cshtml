@@ -5,106 +5,10 @@
 }
 
 <div class="row">
-    <div class="col-md-6">
-    </div>
-    <div class="col-md-3">
-        <h2>Buscar usuario y Modificar sus Redes</h2>
-        <form action="@(Url.Action("ShowUser", "Home"))" method="get">
-            <div>
-                <label>Id:</label>
-                <input type="number" name="Id" />
-            </div>
-            <div class="button">
-                <button type="submit">Buscar</button>
-            </div>
-        </form>
-    </div>
-    <div class="col-md-3">
-        <h2>Añadir usuario</h2>
-        <ul>
-            <form class="form-group" action="@(Url.Action("AddUser","Home"))" method="post">
-                <div>
-                    <label>Name:</label>
-                    <input type="text" name="Name" required />
-                </div>
-                <div>
-                    <label>SubName:</label>
-                    <input type="text" name="Subname" required />
-                </div>
-                <div>
-                    <label>Favourite Network:</label>
-                    <select class="form-control" name="FavouriteNetwork">
-                        <option>Ninguna</option>
-                        @{
-                            foreach (var socialNet in Model.SocialNetwokList)
-                            {
-                                <option>@(socialNet.Id)</option>
-                            }
-                        }
-                    </select>
-                </div>
-                <div>
-                    @{
-                        foreach (var socialNet in Model.SocialNetwokList)
-                        {
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input type="checkbox" name="Netwoks" class="form-check-input" value="@(socialNet.Id)">@(socialNet.Name)
-                                </label>
-                            </div>
-                        }
-                    }
-                </div>
-                <div class="button">
-                    <button type="submit">Añadir</button>
-                </div>
-            </form>
-        </ul>
-    </div>
-    <div class="col-md-7">
-        <h2>Añadir Red Social</h2>
-        <ul>
-            <form class="form-group" action="@(Url.Action("AddSocialNetwork","Home"))" method="post">
-                <div>
-                    <label>Name:</label>
-                    <input type="text" name="Name" required />
-                </div>
-                <div>
-                    <label>Url:</label>
-                    <input type="text" name="Url" required />
-                </div>
-                <div class="button">
-                    <button type="submit">Añadir</button>
-                </div>
-            </form>
-        </ul>
-    </div>
+ 
+    @Html.ActionLink("Usuarios", "Index", "User", null, new { @class = "btn btn-info margin-top" })
 
-    <div class="col-md-5">
-        <h2>Lista de Redes Sociales y sus Usuarios</h2>
-        <ul>
-            @{
-                foreach (var SNet in Model.SocialNetworkUsersList)
-                {
-                    <li>id:@(SNet.Id) | nombre:@(SNet.Name) | Url:@(SNet.Url)</li>
-                    <ul>
-                        <h5>Lista de Usuarios de la Red Social</h5>
-                        @{
-                            foreach (var usuario in SNet.SocialNetworkUsers)
-                            {
-                                <li>Id del Usuario: @(usuario.Id)</li>
-                                <li>Nombre del Usuario: @(usuario.Name)</li>
-                            }
-                        }
-                    </ul>
-                }
-            }
-        </ul>
-    </div>
-
-
-
-    @Html.ActionLink("Usuarios", "Index", "User", null, new { @class = "btn btn-info" })
+    @Html.ActionLink("Redes Sociales", "Index", "SocialNetwork", null, new { @class = "btn btn-info margin-top" })
 
 
 </div>

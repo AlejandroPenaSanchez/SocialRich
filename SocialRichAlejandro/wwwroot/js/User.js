@@ -9,7 +9,7 @@ function getSocialNetworkList() {
         {
             if (result)
             {
-                addFavouriteNets(result);
+                addFavouriteNets(result, '#FavouriteNetWork');
                 addNetworks(result);
             }
         }
@@ -17,10 +17,10 @@ function getSocialNetworkList() {
 }
 
 
-function addFavouriteNets(data)
+function addFavouriteNets(data, itemId)
 {
     $.each(data, function (i, item) {
-        $('#FavouriteNetWork').append($('<option>', {
+        $(itemId).append($('<option>', {
             value: item.id,
             text: item.name
         }));
@@ -48,12 +48,45 @@ function addNetworks(data)
 }
 
 
+
+
+
+
+
+function getEditSocialNetworkList() {
+
+    $.ajax({
+        method: "POST",
+        url: UrlGetSocialNetworkList,
+        success: function (result) {
+            if (result) {
+                addFavouriteNets(result, '#FavouriteNetWork');
+                addFavouriteNets(result, '#addNetWork');
+            }
+        }
+    })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function getUserData()
 {
     $.ajax({
-        method: "POST",
+        method: "GET",
         url: UrlGetUserData,
-        data: UserId,
+        data: { "Id": UserId },
+        dataType: 'json',
         success: function (result) {
             if (result) {
                 addUserData(result)
@@ -64,15 +97,13 @@ function getUserData()
 
 function addUserData(data)
 {
-    
     $("#userId").append(data.Id);
     $("#nombre").append(data.Name);
     $("#apellido").append(data.Subname);
     $("#favorita").append(data.FavouriteNetwork.Name);
-    $.each(data.Networks, function (i, item)
-    {
+    $.each(data.Networks, function (i, item) {
         $("#NetList").append($('<li />', {
             text: "red social: " + item.name
         }));
-    }
+    });
 }

@@ -4,17 +4,15 @@
     ViewData["Title"] = "About";
 }
 
+<script src="~/js/User.js"></script>
 
 <div class="row">
     <div class="col-md-6">
         <h2>Usuario</h2>
         <ul>
             @{
-                <li id="userId">id: @(Model.Id) | nombre: @(Model.Name) | apellido: @(Model.Subname) | red favorita: @(Model.FavouriteNetwork.Name)</li>
-                <li id="nombre"></li>
-                <li id="apellido"></li>
-                <li id="favorita"></li>
-                <ul id="NetList">
+                <li>id: @(Model.Id) | nombre: @(Model.Name) | apellido: @(Model.Subname) | red favorita: @(Model.FavouriteNetwork.Name)</li>
+                <ul>
                     <h5>Lista de Redes del usuario</h5>
                     @{
                         foreach (var network in Model.Networks)
@@ -27,43 +25,13 @@
         </ul>
     </div>
 
-
-    <div class="col-md-3">
-        <h2>Añadir favorito</h2>
-        <form asp-controller="User" asp-action="EditFavourite" method="post">
+    <div class="col-md-6 margin-top">
+        <form asp-controller="User" asp-action="Edit" method="get">
             <div>
-                <label>UserId:</label>
-                <input type="number" name="UserId" value="@(Model.Id)" required />
-            </div>
-            <div>
-                <label>social Network:</label>
-                <input type="number" name="socialNetworkid" required />
-            </div>
-            <div>
-                <input class="hidden" type="text" name="IsFavourite" value="True" />
+                <input class="hidden" type="text" name="id" value="@(Model.Id)" />
             </div>
             <div class="button">
-                <button type="submit">Search</button>
-            </div>
-        </form>
-    </div>
-
-    <div class="col-md-3">
-        <h2>Añadir red social</h2>
-        <form action="@(Url.Action("AddSocialNet", "User"))" method="post">
-            <div>
-                <label>UserId:</label>
-                <input type="number" name="UserId" value="@(Model.Id)" required />
-            </div>
-            <div>
-                <label>social Network:</label>
-                <input type="number" name="socialNetworkid" required />
-            </div>
-            <div>
-                <input class="hidden" type="text" name="IsFavourite" value="false" />
-            </div>
-            <div class="button">
-                <button type="submit">Search</button>
+                <button class="btn btn-info" type="submit">Editar</button>
             </div>
         </form>
     </div>
@@ -73,13 +41,12 @@
 
 
 
+    @Html.ActionLink("Volver", "Index", "User", null, new { @class = "btn btn-info" })
 
-@Html.ActionLink("Volver", "Index", "Home", null, new { @class = "btn btn-info" })
-
-<script>
+    <script>
     var UrlGetUserData = "@(Url.Action("GetUserData", "User"))";
     var UserId = @ViewBag.UserId;
     $(document).ready(function () {
         getUserData();
-    }
-</script>
+    });
+    </script>

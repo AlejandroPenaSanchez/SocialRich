@@ -28,7 +28,6 @@
 
     <div class="col-md-6 margin-top">
         @Html.ActionLink("Añadir Usuario", "Create", "User", null, new { @class = "btn btn-info" })
-        @Html.ActionLink("Modificar Usuario", "Edit", "User", null, new { @class = "btn btn-info" })
     </div>
 
     <div class="col-md-6 margin-top">
@@ -47,5 +46,8 @@
         </form>
     </div>
 </div>
+
+
+@Html.ActionLink("Volver", "Index", "Home", null, new { @class = "btn btn-info" })
 
 

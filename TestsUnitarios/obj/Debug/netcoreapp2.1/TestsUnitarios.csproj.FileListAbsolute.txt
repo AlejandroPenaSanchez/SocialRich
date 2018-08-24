@@ -1,0 +1,16 @@
+C:\Users\apenas\source\repos\SocialRichAlejandro\TestsUnitarios\bin\Debug\netcoreapp2.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\Users\apenas\source\repos\SocialRichAlejandro\TestsUnitarios\bin\Debug\netcoreapp2.1\xunit.runner.reporters.netcoreapp10.dll
+C:\Users\apenas\source\repos\SocialRichAlejandro\TestsUnitarios\bin\Debug\netcoreapp2.1\xunit.runner.utility.netcoreapp10.dll
+C:\Users\apenas\source\repos\SocialRichAlejandro\TestsUnitarios\bin\Debug\netcoreapp2.1\TestsUnitarios.deps.json
+C:\Users\apenas\source\repos\SocialRichAlejandro\TestsUnitarios\bin\Debug\netcoreapp2.1\TestsUnitarios.runtimeconfig.json
+C:\Users\apenas\source\repos\SocialRichAlejandro\TestsUnitarios\bin\Debug\netcoreapp2.1\TestsUnitarios.runtimeconfig.dev.json
+C:\Users\apenas\source\repos\SocialRichAlejandro\TestsUnitarios\bin\Debug\netcoreapp2.1\TestsUnitarios.dll
+C:\Users\apenas\source\repos\SocialRichAlejandro\TestsUnitarios\obj\Debug\netcoreapp2.1\TestsUnitarios.csprojAssemblyReference.cache
+C:\Users\apenas\source\repos\SocialRichAlejandro\TestsUnitarios\obj\Debug\netcoreapp2.1\TestsUnitarios.csproj.CoreCompileInputs.cache
+C:\Users\apenas\source\repos\SocialRichAlejandro\TestsUnitarios\obj\Debug\netcoreapp2.1\TestsUnitarios.AssemblyInfoInputs.cache
+C:\Users\apenas\source\repos\SocialRichAlejandro\TestsUnitarios\obj\Debug\netcoreapp2.1\TestsUnitarios.AssemblyInfo.cs
+C:\Users\apenas\source\repos\SocialRichAlejandro\TestsUnitarios\bin\Debug\netcoreapp2.1\SocialRichAlejandro.Views.dll
+C:\Users\apenas\source\repos\SocialRichAlejandro\TestsUnitarios\bin\Debug\netcoreapp2.1\SocialRichAlejandro.Views.pdb
+C:\Users\apenas\source\repos\SocialRichAlejandro\TestsUnitarios\bin\Debug\netcoreapp2.1\SocialRichAlejandro.dll
+C:\Users\apenas\source\repos\SocialRichAlejandro\TestsUnitarios\bin\Debug\netcoreapp2.1\SocialRichAlejandro.pdb
+C:\Users\apenas\source\repos\SocialRichAlejandro\TestsUnitarios\obj\Debug\netcoreapp2.1\TestsUnitarios.csproj.CopyComplete

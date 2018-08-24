@@ -29,7 +29,9 @@ C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\obj\Debug\n
 C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\obj\Debug\netcoreapp2.1\SocialRichAlejandro.csproj.CopyComplete
 C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\obj\Debug\netcoreapp2.1\SocialRichAlejandro.csprojAssemblyReference.cache
 C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\obj\Debug\netcoreapp2.1\Razor\Views\SocialNetwork\AddSocialNetwork.g.cshtml.cs
-C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\obj\Debug\netcoreapp2.1\Razor\Views\User\EditUser.g.cshtml.cs
 C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\obj\Debug\netcoreapp2.1\Razor\Views\User\Index.g.cshtml.cs
 C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\obj\Debug\netcoreapp2.1\Razor\Views\User\Details.g.cshtml.cs
 C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\obj\Debug\netcoreapp2.1\Razor\Views\User\Create.g.cshtml.cs
+C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\obj\Debug\netcoreapp2.1\Razor\Views\SocialNetwork\Index.g.cshtml.cs
+C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\obj\Debug\netcoreapp2.1\Razor\Views\SocialNetwork\Create.g.cshtml.cs
+C:\Users\apenas\source\repos\SocialRichAlejandro\SocialRichAlejandro\obj\Debug\netcoreapp2.1\Razor\Views\User\Edit.g.cshtml.cs

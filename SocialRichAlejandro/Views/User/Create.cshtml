@@ -36,10 +36,13 @@
 </ul>
 
 
+@Html.ActionLink("Volver", "Index", "User", null, new { @class = "btn btn-info" })
+
+
 <script>
     var UrlGetSocialNetworkList = "@(Url.Action("GetSocialNetworkList","User"))";
     $(document).ready(function () {
         getSocialNetworkList();
     });
-    
+
 </script>

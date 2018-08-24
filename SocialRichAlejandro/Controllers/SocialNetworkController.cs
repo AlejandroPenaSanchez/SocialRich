@@ -4,37 +4,84 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SocialRich.Entities;
+using SocialRichAlejandro.Models;
+using SocialRichAlejandro.ViewModel;
 
 namespace SocialRichAlejandro.Controllers
 {
     public class SocialNetworkController : Controller
     {
-        // GET: SocialNetwork
+        #region Properties and constructor
+        private readonly Context _context;
+
+        public SocialNetworkController(Context context)
+        {
+            _context = context;
+        }
+        #endregion
+
+        #region Index
+        [HttpGet]
         public ActionResult Index()
         {
-            return View();
-        }
+            List<SocialNetworkViewModel> SNVMList = new List<SocialNetworkViewModel>();
+            var SNList = _context.SocialNetwork.ToList();
 
-        // GET: SocialNetwork/Details/5
+            foreach (var socialNet in SNList)
+            {
+                List<Users> SNUsersList = new List<Users>();
+                var NetList = _context.Networks.Where(n => n.SocialNetworksId == socialNet.Id).ToList();
+                foreach (var net in NetList)
+                {
+                    SNUsersList.Add(_context.Users.First(u => u.Id == net.UsersId));
+                }
+
+                SocialNetworkViewModel model = new SocialNetworkViewModel
+                {
+                    Id = socialNet.Id,
+                    Name = socialNet.Name,
+                    Url = socialNet.Url,
+                    SocialNetworkUsers = SNUsersList
+                };
+
+                SNVMList.Add(model);
+            }
+            return View(new SocialNetworkListViewModel
+            {
+                 SocialNetworkList = SNVMList
+            });
+        }
+        #endregion
+
+        #region Details
+        [HttpGet]
         public ActionResult Details(int id)
         {
             return View();
         }
+        #endregion
 
-        // GET: SocialNetwork/Create
+        #region Create
+        [HttpGet]
         public ActionResult Create()
         {
             return View();
         }
+       
 
-        // POST: SocialNetwork/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(AddSocialNetwork model)
         {
             try
             {
-                // TODO: Add insert logic here
+                _context.SocialNetwork.Add(new SocialNetwork
+                {
+                    Name = model.Name,
+                    Url = model.Url
+                });
+
+                _context.SaveChanges();
 
                 return RedirectToAction(nameof(Index));
             }
@@ -43,16 +90,16 @@ namespace SocialRichAlejandro.Controllers
                 return View();
             }
         }
+        #endregion
 
-        // GET: SocialNetwork/Edit/5
+        #region Edit
+        [HttpGet]
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: SocialNetwork/Edit/5
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
         {
             try
@@ -66,16 +113,15 @@ namespace SocialRichAlejandro.Controllers
                 return View();
             }
         }
+        #endregion
 
-        // GET: SocialNetwork/Delete/5
+        #region Delete
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: SocialNetwork/Delete/5
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)
         {
             try
@@ -89,5 +135,6 @@ namespace SocialRichAlejandro.Controllers
                 return View();
             }
         }
+        #endregion
     }
 }

@@ -65,8 +65,30 @@ namespace SocialRichAlejandro.Controllers
         [HttpGet]
         public ActionResult Details(int Id)
         {
-            ViewBag.UserId = Id;
-            return View();
+            try
+            {
+                var user = _context.Users.First(u => u.Id == Id);
+                var networksList = _context.Networks.Where(n => n.UsersId == user.Id).ToList();
+                List<SocialNetwork> networks = new List<SocialNetwork>();
+                foreach (var net in networksList)
+                {
+                    networks.Add(_context.SocialNetwork.First(s => s.Id == net.SocialNetworksId));
+                }
+                var model = new UserViewModel
+                {
+                    Id = user.Id,
+                    Name = user.Name,
+                    Subname = user.Subname,
+                    FavouriteNetwork = user.SocialNetworkId == null ? new SocialNetwork() : _context.SocialNetwork.First(s => s.Id == user.SocialNetworkId),
+                    Networks = networks
+                };
+
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction(nameof(Index));
+            }
         }
 
         public ActionResult EditFavourite(EditUserSocialNetViewModel model)
@@ -89,34 +111,6 @@ namespace SocialRichAlejandro.Controllers
                 action = "Details",
                 Id = 0
             }));
-        }
-
-        public UserViewModel GetUserData(int Id)
-        {
-            try
-            {
-                var user = _context.Users.First(u => u.Id == Id);
-                var networksList = _context.Networks.Where(n => n.UsersId == user.Id).ToList();
-                List<SocialNetwork> networks = new List<SocialNetwork>();
-                foreach (var net in networksList)
-                {
-                    networks.Add(_context.SocialNetwork.First(s => s.Id == net.SocialNetworksId));
-                }
-                var model = new UserViewModel
-                {
-                    Id = user.Id,
-                    Name = user.Name,
-                    Subname = user.Subname,
-                    FavouriteNetwork = user.SocialNetworkId == null ? new SocialNetwork() : _context.SocialNetwork.First(s => s.Id == user.SocialNetworkId),
-                    Networks = networks
-                };
-
-                return model;
-            }
-            catch (Exception ex)
-            {
-                return new UserViewModel();
-            }
         }
 
         #endregion
@@ -204,19 +198,54 @@ namespace SocialRichAlejandro.Controllers
 
         [HttpGet]
         public ActionResult Edit(int id)
-        {
-            return View();
+        { 
+            return View(new EditUserSocialNetViewModel
+            {
+                UserId = id
+            });
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(EditUserSocialNetViewModel model)
         {
             try
             {
-                // TODO: Add update logic here
+                var querableUsuario = _context.Users.Where(u => u.Id == model.UserId);
+                if (_context.SocialNetwork.Where(s => s.Id == model.SocialNetworkId).Any() && querableUsuario.Any())
+                {
+                    if (model.IsFavourite)
+                    {
+                        var usuario = querableUsuario.First();
+                        if (usuario.SocialNetworkId != model.SocialNetworkId)
+                        {
+                            usuario.SocialNetworkId = model.SocialNetworkId;
+                            _context.Users.Update(usuario);
+                            _context.SaveChanges();
+                        }
+                    }
+                    else
+                    {
+                        var networks = _context.Networks.Where(n => n.UsersId == model.UserId && n.SocialNetworksId == model.SocialNetworkId);
+                        if (!networks.Any())
+                        {
+                            _context.Networks.Add(new Networks
+                            {
+                                UsersId = model.UserId,
+                                SocialNetworksId = model.SocialNetworkId
+                            });
 
-                return RedirectToAction(nameof(Index));
+                            if (!_context.Networks.Where(n => n.UsersId == model.UserId).Any())
+                            {
+                                var usuario = querableUsuario.First();
+                                usuario.SocialNetworkId = model.SocialNetworkId;
+                                _context.Users.Update(usuario);
+                            }
+
+                            _context.SaveChanges();
+                        }
+                    }
+                }
+                return RedirectToAction(nameof(Details));
             }
             catch
             {
